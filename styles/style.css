@@ -12,6 +12,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 300px;
 }
 
 .container{
@@ -100,4 +101,23 @@ body{
     grid-row: 2/3;
     grid-column: 3/4;
     display: grid;
+}
+
+@media screen and (max-width: 1030px) {
+    .container {
+        width: 80% !important;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        width: 100% !important;
+        height: 100% !important;
+    }
 }
