@@ -1,0 +1,103 @@
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: 
+        linear-gradient(to right, rgb(0,172,251),rgb(0,252,112));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    height: 80%;
+    width: 25%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1.5fr repeat(5,1fr);
+}
+
+#screen {
+    grid-column: 1/-1;
+    text-align: end;
+    padding: 10px 20px;
+    font-size: 3rem;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.858);
+    border: none;
+    color: #fff;
+}
+
+.btn {
+    border: 1px solid rgba(0, 171, 251, 0.4) !important;
+}
+
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.913);
+}
+
+.buttons, .equal, .btn-delete, .clear {
+    background-color: rgba(255, 255, 255, 0.703);
+    border: none;
+    font-size: 20px;
+}
+
+.numbers {
+    grid-column: 1/-2;
+    grid-row: 3/6;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.equal-btn {
+    grid-row: 6/7;
+    grid-column: -1/-3;
+}
+
+.equal-btn .equal {
+    width: 100%;
+    height: 100%;
+}
+
+.clear-btn {
+    grid-row: 2/3;
+    grid-column: 1/3;
+}
+
+.clear-btn .clear {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-zero {
+    grid-row: 6/7;
+    grid-column: 2/3;
+}
+
+.zero {
+    height: 100%;
+    width: 100%;
+}
+
+.operators {
+    grid-row: 2/6;
+    display: grid;
+}
+
+.comma-container {
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 6/7
+}
+
+.delete-container {
+    grid-row: 2/3;
+    grid-column: 3/4;
+    display: grid;
+}
