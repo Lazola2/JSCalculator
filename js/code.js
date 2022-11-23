@@ -13,7 +13,6 @@ let btnComma = document.querySelector(".btn-comma");
 // processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 // assume that the is no text in the screen
 let arr = [];
-
 let noText = true;
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -41,6 +40,8 @@ equal.addEventListener('click', () => {
             screen.value = eval(screen.value).toFixed(2) :
             screen.value = eval(screen.value);
         noText = !noText;
+        if (!screen.value.split('').includes('.'))
+            arr = []
     }
     catch (e) {
         alert("Invalid value entered!");
@@ -52,6 +53,7 @@ equal.addEventListener('click', () => {
 // clear button
 clearBtn.addEventListener('click', () => {
     screen.value = "";
+    arr = []
 });
 
 // delete button
