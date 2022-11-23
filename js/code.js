@@ -1,5 +1,7 @@
 // inputs
 let buttons = document.querySelectorAll(".buttons");
+let operators = document.querySelectorAll(".operators>input");
+
 let screen = document.querySelector("#screen");
 let equal = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
@@ -7,19 +9,30 @@ let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
 let btnComma = document.querySelector(".btn-comma");
 
+
 // processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 // assume that the is no text in the screen
+let arr = [];
+
 let noText = true;
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         if (noText) {
             screen.value += button.value;
+            arr.push(button.value);
             return;
         }
         screen.value = button.value;
         noText = !noText;
+        arr.push(button.value);
     });
 });
+
+operators.forEach(operator => {
+    operator.addEventListener('click' , ()=> {
+        arr = [];
+    })
+})
 
 // equal button
 equal.addEventListener('click', () => {
@@ -48,7 +61,9 @@ deleteBtn.addEventListener('click', () => {
 
 // comma button
 btnComma.addEventListener('click', () => {
-    if (!screen.value.split('').includes('.')){
+    if (!arr.includes('.')){
         screen.value += btnComma.value;
+        arr.push(btnComma.value);
     }
 })
+
