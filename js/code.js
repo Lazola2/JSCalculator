@@ -5,6 +5,7 @@ let equal = document.querySelector(".equal");
 let clearBtn = document.querySelector(".clear");
 let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
+let btnComma = document.querySelector(".btn-comma");
 
 // processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 // assume that the is no text in the screen
@@ -42,11 +43,12 @@ clearBtn.addEventListener('click', () => {
 
 // delete button
 deleteBtn.addEventListener('click', () => {
-    let arrVal = screen.value.split("");
-    arrVal.pop();
-    let newVal = "";
-    arrVal.forEach(letter => {
-        newVal += letter;
-    });
-    screen.value = newVal;
+    screen.value = screen.value.slice('0', '-1');
 });
+
+// comma button
+btnComma.addEventListener('click', () => {
+    if (!screen.value.split('').includes('.')){
+        screen.value += btnComma.value;
+    }
+})
