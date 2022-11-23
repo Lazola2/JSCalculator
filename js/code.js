@@ -54,7 +54,12 @@ btnComma.addEventListener('click', () => {
     //     screen.value += btnComma.value;
     // }
 
-    alert(validateDecimals(screen.value)?'Still good':'not good')
+    if (validateDecimals(screen.value)) {
+        alert('Still good');
+    }
+    else{
+        alert('Not good');
+    }
 });
 
 function validateDecimals(value) {
