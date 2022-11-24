@@ -19,6 +19,7 @@ buttons.forEach(button => {
             arr.push(button.value);
             return;
         }
+        clearScreen();
         screen.value = button.value;
         noText = !noText;
         arr.push(button.value);
@@ -53,10 +54,11 @@ equal.addEventListener('click', () => {
 });
 
 // clear button
-clearBtn.addEventListener('click', () => {
+const clearScreen = () => {
     screen.value = "";
-    arr = []
-});
+    arr = [];
+}
+clearBtn.addEventListener('click', clearScreen);
 
 // delete button
 deleteBtn.addEventListener('click', () => {
