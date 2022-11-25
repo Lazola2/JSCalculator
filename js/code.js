@@ -8,9 +8,11 @@ let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
 let btnComma = document.querySelector(".btn-comma");
 
+// this array is used to validate if the is a comma on the screen
+let arr = []; 
+
 // processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 // assume that the is no text in the screen
-let arr = []; // this array is used to validate if the is a comma on the screen
 let noText = true;
 buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -37,13 +39,12 @@ operators.forEach(operator => {
 // equal button
 equal.addEventListener('click', () => {
     try {
-        if (eval(screen.value).toString().includes('.')) {
-            screen.value = eval(screen.value).toFixed(2);
-        }
-        else {
+        if ( !eval(screen.value).toString().includes('.')) {
             screen.value = eval(screen.value);
-            arr = [];
+            arr = [];            
+            return;
         }
+        screen.value = eval(screen.value).toFixed(2);
         noText = !noText;
     }
     catch (e) {
@@ -58,6 +59,7 @@ const clearScreen = () => {
     screen.value = "";
     arr = [];
 }
+// clearBtn.addEventListener('click', clearScreen);
 clearBtn.addEventListener('click', clearScreen);
 
 // delete button
