@@ -1,5 +1,3 @@
-
-
 // reference of buttons on html
 let buttons = document.querySelectorAll(".buttons");
 let operators = document.querySelectorAll(".operators>input");
@@ -10,14 +8,14 @@ let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
 let btnComma = document.querySelector(".btn-comma");
 
-// this array is used to validate if the is a comma on the screen
+// the following array is used to validate if the is a comma on the screen
 let arr = [];
 
-// this variable will be the memory for when the user clicks delete
+// the following array will be the memory for when the user clicks delete
 // it will undo the clearing of the array used to validate comma
 let memory = [];
 
-// processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
+// processing for all the buttons 1 to 9 
 // assume that the is no text in the screen
 let noText = true;
 buttons.forEach(button => {
@@ -34,11 +32,11 @@ buttons.forEach(button => {
     });
 });
 
-// operators are ['/','+','*','-']
+// processing the operators including ['/','+','*','-']
 // the onclick event of each operator should clear the array used for validating commas
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
-        // memory = [...arr];
+        memory = [...arr];
         arr = [];
     })
 })
@@ -84,11 +82,6 @@ deleteBtn.addEventListener('click', () => {
         clickedEqual = false;
         return;
     }
-
-    // if (memory.includes('.')) {
-    //     console.log('the memory has a comma');
-    //     console.log(`memory: [${memory}]`)
-    // }
     screen.value = screen.value.slice('0', '-1');
     memory.pop();
     arr.pop();
@@ -97,7 +90,7 @@ deleteBtn.addEventListener('click', () => {
 
 // comma button
 btnComma.addEventListener('click', () => {
-    if (!arr.includes('.') && !memory.includes('.')) {
+    if (!arr.includes('.')) {
         screen.value += btnComma.value;
         arr.push(btnComma.value);
     }
