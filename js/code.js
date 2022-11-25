@@ -45,6 +45,7 @@ equal.addEventListener('click', () => {
             return;
         }
         screen.value = eval(screen.value).toFixed(2);
+        arr = [...screen.value.split('')];
         noText = !noText;
     }
     catch (e) {
@@ -52,6 +53,7 @@ equal.addEventListener('click', () => {
         console.log(e);
         screen.value = "";
     }
+    arr.push(screen.value);
 });
 
 // clear button
@@ -59,7 +61,7 @@ const clearScreen = () => {
     screen.value = "";
     arr = [];
 }
-// clearBtn.addEventListener('click', clearScreen);
+
 clearBtn.addEventListener('click', clearScreen);
 
 // delete button
