@@ -50,7 +50,7 @@ equal.addEventListener('click', () => {
             return;
         }
         screen.value = eval(screen.value).toFixed(2);
-        [memory,arr] = [...screen.value.split('')];
+        [memory, arr] = [...screen.value.split('')];
         
         noText = !noText;
     }
