@@ -1,3 +1,5 @@
+
+
 // reference of buttons on html
 let buttons = document.querySelectorAll(".buttons");
 let operators = document.querySelectorAll(".operators>input");
@@ -36,12 +38,13 @@ buttons.forEach(button => {
 // the onclick event of each operator should clear the array used for validating commas
 operators.forEach(operator => {
     operator.addEventListener('click', () => {
-        memory = [...arr];
+        // memory = [...arr];
         arr = [];
     })
 })
 
 // equal button
+let clickedEqual = false;
 equal.addEventListener('click', () => {
     try {
         if (!eval(screen.value).toString().includes('.')) {
@@ -50,16 +53,18 @@ equal.addEventListener('click', () => {
             return;
         }
         screen.value = eval(screen.value).toFixed(2);
-        [memory, arr] = [...screen.value.split('')];
+        arr = [...screen.value.split('')];
+        memory = [...screen.value.split('')];
         
         noText = !noText;
+        clickedEqual = true;
+        console.log('clicked equal');
     }
     catch (e) {
         alert("Invalid value entered!");
         console.log(e);
         screen.value = "";
     }
-    arr.push(screen.value);
 });
 
 // clear button
@@ -73,10 +78,17 @@ clearBtn.addEventListener('click', clearScreen);
 
 // delete button
 deleteBtn.addEventListener('click', () => {
-    if (memory.includes('.')) {
-        console.log('the memory has a comma');
-        console.log(`memory: [${memory}]`)
+    // clear the screen if you clicked delete after clicking equal
+    if (clickedEqual) {
+        screen.value = '';
+        clickedEqual = false;
+        return;
     }
+
+    // if (memory.includes('.')) {
+    //     console.log('the memory has a comma');
+    //     console.log(`memory: [${memory}]`)
+    // }
     screen.value = screen.value.slice('0', '-1');
     memory.pop();
     arr.pop();
