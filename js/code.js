@@ -56,7 +56,6 @@ equal.addEventListener('click', () => {
         
         noText = !noText;
         clickedEqual = true;
-        console.log('clicked equal');
     }
     catch (e) {
         alert("Invalid value entered!");
@@ -71,7 +70,6 @@ const clearScreen = () => {
     arr = [];
     memory = [];
 }
-
 clearBtn.addEventListener('click', clearScreen);
 
 // delete button
