@@ -21,7 +21,7 @@ let noText = true;
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         clickedEqual = false;
-        if (noText) {
+        if (noText && !clickedEqual) {
             screen.value += button.value;
             arr.push(button.value);
             return;
@@ -45,6 +45,7 @@ operators.forEach(operator => {
 // equal button
 let clickedEqual = false;
 equal.addEventListener('click', () => {
+    clickedEqual = true;
     try {
         if (!eval(screen.value).toString().includes('.')) {
             screen.value = eval(screen.value);
@@ -56,7 +57,6 @@ equal.addEventListener('click', () => {
         memory = [...screen.value.split('')];
         
         noText = !noText;
-        clickedEqual = true;
     }
     catch (e) {
         alert("Invalid value entered!");
