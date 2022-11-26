@@ -20,6 +20,7 @@ let memory = [];
 let noText = true;
 buttons.forEach(button => {
     button.addEventListener('click', () => {
+        clickedEqual = false;
         if (noText) {
             screen.value += button.value;
             arr.push(button.value);
