@@ -84,6 +84,7 @@ deleteBtn.addEventListener('click', () => {
     }
     screen.value = screen.value.slice('0', '-1');
     memory.pop();
+    arr = [...memory];
     arr.pop();
     memory = [...screen.value.split('')]
 });
