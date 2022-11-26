@@ -78,7 +78,7 @@ clearBtn.addEventListener('click', clearScreen);
 deleteBtn.addEventListener('click', () => {
     // clear the screen if you clicked delete after clicking equal
     if (clickedEqual) {
-        screen.value = '';
+        clearScreen();
         clickedEqual = false;
         return;
     }
